@@ -10,12 +10,10 @@ class CreateRecruiterDetailsTable extends Migration
     {
         Schema::create('recruiter_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('recruiter_id');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('company_id')->nullable()->constrained()->onDelete('set null');
             $table->string('position_at_company')->nullable();
             $table->timestamps();
-
-            $table->foreign('recruiter_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

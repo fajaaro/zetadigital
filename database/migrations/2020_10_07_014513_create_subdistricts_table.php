@@ -10,14 +10,14 @@ class CreateSubdistrictsTable extends Migration
     {
         Schema::create('subdistricts', function (Blueprint $table) {
             $table->id();
-            $table->string('kelurahan', 100);
-            $table->string('kecamatan', 100);
+            $table->string('subdistrict', 100);
+            $table->string('district', 100);
             $table->string('city', 100);
             $table->unsignedInteger('province_code');
             $table->char('postal_code', 6);
 
             $table->index('city');
-            $table->index('kecamatan');
+            $table->index('district');
             $table->index('province_code');
 
             $table->foreign('province_code')->references('code')->on('provinces');

@@ -1,0 +1,35 @@
+/*-----!!! View !!!-----*/
+.zeta-view {
+margin: 0 auto;
+}
+/*-----!!! Sidebar !!!-----*/
+.zeta-sidebar {
+}
+.zeta-sidebar .menu-items a {
+width: 100%;
+background-color: transparent;
+display: block;
+color: #2b1e54;
+border: 0;
+opacity: 0.5;
+padding: 12px 0;
+filter: saturate(0);
+}
+.zeta-sidebar .menu-items .active {
+opacity: 1;
+filter: saturate(1);
+}
+.zeta-sidebar .menu-items .link-container {
+display: flex;
+}
+.zeta-sidebar .menu-items .link-container > .image {
+margin-right: 14px;
+}
+.zeta-sidebar .menu-items .link-container > .title {
+font-weight: 500;
+align-self: center;
+}
+/*-----!!! modal-form !!!-----*/
+.zeta-content {
+padding: 0;
+}

@@ -39,7 +39,7 @@ class User extends Authenticatable
     public function jobs()
     {
         // return pekerjaan yang diposting user dengan tipe recruiter
-        return $this->hasMany('App\Models\Job');
+        return $this->hasMany('App\Models\Job', 'recruiter_id');
     }
 
     public function appliedJobs()
@@ -47,8 +47,19 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\AppliedJob');
     }
 
+    public function companies()
+    {
+        // return companies yang didaftarkan oleh user
+        return $this->hasMany('App\Models\Company', 'registrant_id');
+    }
+
     public function getFullName()
     {
         return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function inRole($role)
+    {
+        return $this->role->name == strtolower($role);
     }
 }

@@ -22,8 +22,8 @@ class SubdistrictSeeder extends Seeder
             if ($limit == $i) break;
             
             Subdistrict::create([
-                'kelurahan' => ucwords(strtolower($data->urban)),
-                'kecamatan' => ucwords(strtolower($data->sub_district)),
+                'subdistrict' => ucwords(strtolower($data->urban)),
+                'district' => ucwords(strtolower($data->sub_district)),
                 'city' => ucwords(strtolower($data->city)),
                 'province_code' => $data->province_code,
                 'postal_code' => $data->postal_code,

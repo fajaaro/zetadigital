@@ -1,0 +1,214 @@
+
+/*-----!!! Job !!!-----*/
+.zeta-content .jobs-container {
+  width: 100%;
+}
+.jobs-container .job {
+  width: 100%;
+  min-height: 200px;
+  padding: 15px;
+  background-color: #F2F4F7;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 25px;
+  margin-left: 0;
+  margin-right: 0;
+}
+.jobs-container .job > .image {
+  max-width: 150px;
+  align-self: center;
+  padding: 15px;
+}
+.jobs-container .job > .image img {
+  width: 100%;
+  height: auto;
+}
+.jobs-container .job > .description {
+  padding-top: 35px;
+  text-align: left;
+  padding-left: 0;
+  padding-right: 0;
+}
+.jobs-container .job > .description > .title {
+  font-size: 24px;
+  color: #2b1e54;
+  margin-bottom: 4px;
+  padding-right: 0;
+}
+.jobs-container .job > .description > .location {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.jobs-container .job > .description > .view {
+  font-size: 14px;
+  color: #000000;
+  transition: all .1s;
+}
+.jobs-container .job > .description > .view:hover {
+  color: #2b1e54;
+  border-bottom: 1px solid #2b1e54;
+  transition: all .1s;
+  text-decoration: none;
+}
+.jobs-container .job > .description > .view > img {
+  margin-left: 2px;
+}
+.jobs-container .job > .status {
+  padding-top: 35px;
+  text-align: left;
+  margin-left: auto;
+  font-size: 14px;
+}
+.jobs-container .job > .status .icon {
+  display: inline-block;
+  vertical-align: top;
+  height: 20px;
+  width: 20px;
+}
+.jobs-container .job > .status .icon > img {
+  height: 100%;
+  width: auto;
+}
+.jobs-container .job > .status .explanation {
+  padding: 5px;
+  display: inline-block;
+}
+.jobs-container .job > .status > .place,
+.jobs-container .job > .status > .position {
+  margin-bottom: 10px;
+}
+.jobs-container .job > .status > .condition {
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 6px;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+.jobs-container .job > .status > .open {
+  background-color: #FFD801;
+}
+.jobs-container .job > .status > .closed {
+  background-color: #DE0000;
+}
+.jobs-container .job > .status > .open::before {
+  content: "open";
+}
+.jobs-container .job > .status > .closed::before {
+  content: "closed";
+}
+/*-----!!! Featured !!!-----*/
+.zeta-featured {
+  padding-left: 25px;
+  padding-right: 0;
+  height: fit-content;
+}
+.zeta-featured .legend {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2b1e54;
+  margin-bottom: 5px;
+}
+.zeta-featured .featured-job-container {
+  padding: 15px;
+}
+.zeta-featured .featured-job-container .job {
+  height: 100px;
+  padding: 10px;
+  background-color: #F2F4F7;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  font-weight: 600;
+  color: #000000;
+  margin-left: 0;
+  margin-right: 0;
+}
+.zeta-featured .featured-job-container .job > .image {
+  max-width: 75px;
+  align-self: center;
+  padding: 10px;
+}
+.zeta-featured .featured-job-container .job > .image img {
+  width: 100%;
+  height: auto;
+}
+.zeta-featured .featured-job-container .job > .description {
+  margin-top: 10px;
+  text-align: left;
+  padding-left: 0;
+  padding-right: 0;
+}
+.zeta-featured .featured-job-container .job > .description > .title {
+  font-size: 13px;
+  color: #2b1e54;
+  padding-right: 0;
+}
+.zeta-featured .featured-job-container .job > .description > .location {
+  font-size: 12px;
+  font-weight: 400;
+}
+.zeta-featured .featured-job-container .job > .description > .view {
+  font-size: 12px;
+  color: #000000;
+  transition: all .1s;
+}
+.zeta-featured .featured-job-container .job > .description > .view:hover {
+  color: #2b1e54;
+  border-bottom: 1px solid #2b1e54;
+  text-decoration: none;
+  transition: all .1s;
+}
+.zeta-featured .featured-job-container .job > .description > .view > img {
+  margin-left: 2px;
+}
+@media (max-width: 575.98px) {
+  .jobs-container .job > .image {
+    padding: 30px;
+    max-width: none;
+    border-bottom: 1px solid #d7d7d7;
+  }
+  .jobs-container .job > .description {
+    padding-top: 15px;
+  }
+  .jobs-container .job > .status {
+    padding-top: 15px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .jobs-container .job > .status > .place,
+  .jobs-container .job > .status > .position {
+    margin-bottom: 5px;
+  }
+  .jobs-container .job > .status > .condition {
+    margin-top: 10px;
+  }
+  .zeta-featured .featured-job-container .job {
+    height: auto;
+  }
+  .zeta-featured .featured-job-container .job > .image {
+    max-width: none;
+    border-bottom: 1px solid #dddddd;
+  }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    
+}

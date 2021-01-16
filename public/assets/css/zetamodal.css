@@ -1,0 +1,81 @@
+
+.zeta-modal {
+    border-radius: 15px;
+    width: 400px;
+    padding: 30px;
+}
+.zeta-modal > .title {
+color:#2b1e54;
+    font-weight: 600;
+    height: 32px;
+    font-size: 24px;
+}
+.zeta-modal > .title img {
+    margin-left: 10px;
+    vertical-align: bottom;
+    position: absolute;
+}
+.zeta-modal .title > .close {
+    width: 32px;
+    height: 32px;
+}
+.zeta-modal > .content .modal-form > .input-container {
+    margin-top: 25px;
+}
+.zeta-modal > .content .modal-form > .input-container > label {
+    width: 100%;
+}
+.zeta-modal > .content .modal-form > .input-container > input,
+.zeta-modal > .content .modal-form > .input-container > select {
+    width: 100%;
+    border-radius: 5px;
+    border: 0;
+    background-color: #E6E6E6;
+    padding: 10px;
+}
+.zeta-modal > .content .modal-form > .input-container > select {
+    appearance: none;
+    outline: none;
+    color: rgba(0, 0, 0, 0.8);
+}
+.zeta-modal > .content .modal-form > .submit-button {
+    color: #ffffff;
+    text-transform: capitalize;
+    font-weight: 600;
+    padding: 10px 25px;
+    background-color: #2b1e54;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: all .1s;
+}
+.zeta-modal > .content .modal-form > .submit-button:hover {
+    opacity: 0.8;
+    transition: all .1s;
+}
+.zeta-modal > .content .login-options,
+.zeta-modal > .content .register-options {
+    margin-top: 25px;
+}
+.zeta-modal > .content .login-options > a {
+    display: block;
+    margin-top: 4px;
+    color: #000000;
+}
+.zeta-modal > .content .login-options > button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+}
+.zeta-modal > .content .login-options > button:hover {
+    text-decoration: underline;
+}
+.zeta-modal > .content .register-options > a {
+    color: #000000;
+    cursor: pointer;
+}
+.zeta-modal > .content .register-options > a:hover {
+    text-decoration: underline;
+}

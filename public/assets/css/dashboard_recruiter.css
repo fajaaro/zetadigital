@@ -1,0 +1,152 @@
+
+      /*-----!!! Recruit !!!-----*/
+      .recruiters-container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .recruiters-container .recruit-container {
+        padding: 0;
+        margin-bottom: 25px;
+      }
+      .recruit-container .recruit {
+        display: flex;
+        background-color: #f2f4f7;
+        border: 1px solid #dddddd;
+        border-radius: 15px;
+        margin: 0;
+        padding: 25px;
+      }
+      .recruit-container .recruit > .picture {
+        align-self: center;
+        border-radius: 100%;
+        width: 100%;
+        height: auto;
+        text-align: center;
+      }
+      .recruit-container .recruit > .picture img {
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+        border-radius: inherit;
+      }
+      .recruit-container .recruit > .description {
+        align-self: center;
+        text-align: left;
+        color: #2b1e54;
+      }
+      .recruit-container .recruit > .description > .name {
+        font-size: 24px;
+        font-weight: 700;
+        width: 100%;
+      }
+      .recruit-container .recruit > .description > .company {
+        color: #000000;
+        font-size: 18px;
+        font-weight: 500;
+      }
+      .recruit-container .recruit > .description > .condition {
+        color: #000000;
+        font-size: 16px;
+        font-weight: 400;
+      }
+      .recruit-container .recruit > .description > .job-count {
+        font-size: 14px;
+        font-weight: 400;
+      }
+      .recruit-container .recruit > .post-job-container {
+        position: absolute;
+        right: 40px;
+        top: 40px;
+      }
+      .recruit-container .recruit > .post-job-container a {
+        text-decoration: none;
+      }
+      .recruit-container .recruit > .post-job-container .post-job {
+        font-size: 18px;
+        padding: 10px 30px;
+        border-radius: 5px;
+        color: #ffffff;
+        font-weight: 500;
+        background-color: #2b1e54;
+        transition: all .1s;
+      }
+      .recruit-container .recruit > .post-job-container .post-job:hover {
+        opacity: 0.8;
+        transition: all .1s;
+      }
+      @media (max-width: 575.98px) {
+        .modal-content .zeta-navbar {
+          border-bottom: 0;
+          margin-bottom: 0;
+        }
+        .recruit-container .recruit {
+          height: 550px;
+        }
+        .recruit-container .recruit > .post-job-container {
+          right: 20px;
+          top: 20px;
+        }
+        .recruit-container .recruit > .post-job-container .post-job {
+          padding: 10px 20px;
+          font-size: 14px;
+        }
+        .recruit-container .recruit > .picture {
+          padding: 30px;
+        }
+        .recruit-container .recruit > .description {
+          padding-top: 15px;
+        }
+      }
+      /* Small devices (landscape phones, 576px and up) */
+      @media (min-width: 576px) {
+        .zeta-view {
+          margin-top: 30px;
+        }
+        .recruit-container .recruit {
+          min-height: 230px;
+        }
+        .recruit-container .recruit > .description > .name {
+          width: 75%;
+        }
+        .recruit-container .recruit > .post-job-container {
+          right: 15px;
+          top: 15px;
+        }
+        .recruit-container .recruit > .post-job-container .post-job {
+          padding: 10px 20px;
+          font-size: 14px;
+        }
+      }
+
+      /* Medium devices (tablets, 768px and up) */
+      @media (min-width: 768px) {
+        .recruit-container .recruit > .post-job-container {
+          right: 30px;
+          top: 30px;
+        }
+        .recruit-container .recruit > .post-job-container .post-job {
+          padding: 10px 30px;
+          font-size: 18px;
+        }
+        .recruit-container .recruit > .description > .name {
+          width: 65%;
+        }
+      }
+
+      /* Large devices (desktops, 992px and up) */
+      @media (min-width: 992px) {
+        .recruit-container .recruit > .description > .name {
+          width: 70%;
+        }
+      }
+
+      /* Extra large devices (large desktops, 1200px and up) */
+      @media (min-width: 1200px) {
+        .zeta-view {
+          margin-top: 0;
+        }
+        .recruit-container .recruit > .description > .name {
+          width: 80%;
+        }
+      }

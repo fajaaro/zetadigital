@@ -10,12 +10,15 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('registrant_id')->nullable();            
             $table->foreignId('subdistrict_id')->nullable()->constrained()->onDelete('set null');
             $table->string('name');
-            $table->string('image_profile_path');
+            $table->string('image_profile_path')->nullable();
             $table->string('address');
             $table->boolean('confirmed')->default(0);
             $table->timestamps();
+
+            $table->foreign('registrant_id')->references('id')->on('users')->onDelete('set null');
         });
     }
 

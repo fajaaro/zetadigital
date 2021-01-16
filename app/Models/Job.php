@@ -9,7 +9,12 @@ class Job extends Model
 {
     use HasFactory;
 
-    public function user()
+    public function company()
+    {
+    	return $this->belongsTo('App\Models\Company');
+    }
+
+    public function recruiter()
     {
     	return $this->belongsTo('App\Models\User', 'recruiter_id');
     }

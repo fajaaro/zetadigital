@@ -9,6 +9,11 @@ class Company extends Model
 {
     use HasFactory;
 
+    public function registrant()
+    {
+    	return $this->belongsTo('App\Models\User', 'registrant_id');
+    }
+
     public function recruiterDetails()
     {
     	return $this->hasMany('App\Models\RecruiterDetail');
@@ -17,5 +22,10 @@ class Company extends Model
     public function subdistrict()
     {
     	return $this->belongsTo('App\Models\Subdistrict');
+    }
+
+    public function jobs()
+    {
+        return $this->hasMany('App\Models\Job');
     }
 }

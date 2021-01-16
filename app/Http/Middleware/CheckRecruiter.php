@@ -6,13 +6,13 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CheckAdmin
+class CheckRecruiter
 {
     public function handle(Request $request, Closure $next)
     {
         $user = Auth::user();
 
-        if ($user && $user->role_id <= 2) {
+        if ($user && $user->role_id <= 3) {
             return $next($request);
         }
 

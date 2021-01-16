@@ -1,0 +1,63 @@
+
+      .zeta-form form .input-container input[type="text"],
+      .zeta-form form .input-container input[type="email"],
+      .zeta-form form .input-container input[type="password"] {
+        width: 100%;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: #f2f4f7;
+        border: 1px solid #dddddd;
+      }
+      .zeta-form form .input-container > select {
+        width: 100%;
+        border-radius: 5px;
+        background-color: #f2f4f7;
+        border: 1px solid #dddddd;
+        padding: 20px;
+      }
+      .zeta-form form .input-container > select {
+        appearance: none;
+        outline: none;
+        color: rgba(0, 0, 0, 0.8);
+      }
+      .zeta-form form .input-container > .showpassword {
+        position: absolute;
+        margin-left: 475px;
+        height: 28px;
+      }
+      .zeta-form form .input-container > .showpassword input {
+        display: none;
+      }
+      .zeta-form form .input-container > .showpassword label {
+        cursor: pointer;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      #first_name {
+        margin-right: 7.5px;
+      }
+      #last_name {
+        margin-left: 7.5px;
+      }
+      .zeta-form form .warning {
+        display: block;
+        font-size: 14px;
+        margin-top: -15px;
+        padding-left: 25px;
+        color: orange;
+      }
+      @media (max-width: 325px) {
+        .zeta-form form .input-container > .showpassword {
+          margin-left: 75%;
+        }
+      }
+      /* Small devices (landscape phones, 576px and up) */
+      @media (min-width: 326px) and (max-width: 576px) {
+        .zeta-form form .input-container > .showpassword {
+          margin-left: 82.5%;
+        }
+      }

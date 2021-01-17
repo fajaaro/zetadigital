@@ -1,7 +1,5 @@
 <?php 
 
-use App\Http\Controllers\Frontend\HomeController;
-
 Route::group(['prefix' => '/'], function () {
 	$dir = base_path('routes/frontend');
 	
@@ -12,6 +10,4 @@ Route::group(['prefix' => '/'], function () {
 			require $dir . '/' . $file;
 		}
 	};
-
-	Route::get('/debug', [HomeController::class, 'debug'])->name('debug');
 });

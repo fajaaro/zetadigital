@@ -20,6 +20,11 @@
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password">
                     </div>
+                    
+                    @php
+                        session()->put('referer', url()->current());
+                    @endphp
+
                     <input type="submit" class="submit-button" value="LOGIN">
                 </form>
                 <div class="login-options">

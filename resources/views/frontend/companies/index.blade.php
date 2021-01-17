@@ -9,6 +9,10 @@
     @include('frontend.partials.login')
 @endguest
 
+@section('sidebar')
+    @include('frontend.partials.sidebar')	
+@endsection
+
 @section('content')
 	<!-- ! Company ! -->
     <section class="zeta-content col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12">

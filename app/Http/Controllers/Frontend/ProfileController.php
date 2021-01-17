@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Company;
 use App\Models\RecruiterDetail;
+use App\Models\Subdistrict;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,7 +22,10 @@ class ProfileController extends Controller
 
     public function formSetUpProfile()
     {
-    	return view('frontend.profiles.setup');
+        $subdistricts = Subdistrict::all();
+        $companies = Company::all();
+
+    	return view('frontend.profiles.setup', compact('subdistricts', 'companies'));
     }
 
     public function setUpProfile(Request $request)
@@ -41,13 +45,14 @@ class ProfileController extends Controller
 	    		$recruiterDetail->save();
     		} else {
     			$company = new Company();
+                $company->registrant_id = $user->id;
     			$company->subdistrict_id = $request->get('subdistrict_id');
     			$company->name = $request->get('name');
     			$company->address = $request->get('address');
     			$company->save();
     			
     			if ($request->hasFile('image_profile')) {
-    				$imageProfilePath = uploadImage($request->file('image_profile'), $company, 'companies-photo-profile');
+    				$imageProfilePath = uploadFile($request->file('image_profile'), $company, 'companies-photo-profile');
 
     				$company->image_profile_path = $imageProfilePath;
     				$company->save();
@@ -55,7 +60,7 @@ class ProfileController extends Controller
     		}
     	} else {
     		if ($request->hasFile('image_profile')) {
-				$imageProfilePath = uploadImage($request->file('image_profile'), $user, 'users-photo-profile');
+				$imageProfilePath = uploadFile($request->file('image_profile'), $user, 'users-photo-profile');
 
 				$user->image_profile_path = $imageProfilePath;
 			}

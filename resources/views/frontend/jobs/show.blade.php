@@ -9,44 +9,25 @@
     @include('frontend.partials.login')
 @endguest
 
+@section('sidebar')
+    @include('frontend.partials.sidebar')
+@endsection
+
 @section('content')
-	<!-- ! Send CV Modal ! -->
-    <section class="modal fade" id="apply-modal" tabindex="-1" role="dialog" aria-labelledby="apply-modal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content zeta-modal" id="apply-modal">
-                <div class="title">
-                    Send Your CV
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="content">
-                    <form action="" class="modal-form" enctype="multipart/form-data">
-                        <div class="input-container">
-                            <label for="file_cv">Attach CV in PDF format</label>
-                            <input type="file" name="file_cv" id="file_cv" accept=".pdf" onchange="previewFileCv(event)" required hidden>
-                            <label for="file_cv" class="hidden-upload"><img src="../assets/img/desktop.png" class="icon"> Choose File...</label>
-                        </div>
-                        <div class="preview-file" id="previewFile-cv">
-                        </div>
-                        <input type="submit" class="submit-button" value="SEND">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- !!! END OF SEND CV MODAL !!! -->
+    @if ($job->status == 'open' && Auth::check() && !Auth::user()->hasApplyJob($job->id))
+        @include('frontend.partials.send-cv-modal')
+    @endauth
 
     <!-- ! View ! -->
-    <section class="zeta-view col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12 row">
+    <section class="zeta-view col-xl-10 col-lg-10 col-1md-12 col-sm-12 col-12 row">
         <section class="job-description-container col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
             <div class="job-description">
                 <div class="condition {{ $job->status == 'open' ? 'open' : 'closed' }}"></div>
                 <div class="job-information">
                     <div class="title">{{ $job->name }}</div>
                     <div class="time-and-condition">
-                        <div class="time"><img src="../assets/img/clock.png" class="icon"> {{ formatDate($job->expired_at, 'd F Y') }}</div>
-                        <div class="explanation"><img src="../assets/img/city.png" class="icon"> {{ ucfirst($job->type) }}</div>
+                        <div class="time"><img src="{{ asset('assets/img/clock.png') }}" class="icon"> {{ formatDate($job->expired_at, 'd F Y') }}</div>
+                        <div class="explanation"><img src="{{ asset('assets/img/city.png') }}" class="icon"> {{ ucfirst($job->type) }}</div>
                     </div>
                 </div>
                 <div class="description">
@@ -54,7 +35,13 @@
                     <div class="content">{{ $job->description }}</div>
                 </div>
                 <div class="apply-container">
-                    <button type="button" data-toggle="modal" data-target="{{ Auth::check() ? '#apply-modal' : '#login-modal' }}" class="apply">Apply</button>
+                    @if (Auth::check() && Auth::user()->hasApplyJob($job->id))
+                        <button type="button" class="apply" style="opacity: 0.8;" disabled>Applied</button> 
+                    @else
+                        @if ($job->status == 'open')
+                            <button type="button" data-toggle="modal" data-target="{{ Auth::check() ? '#apply-modal' : '#login-modal' }}" class="apply">Apply</button>
+                        @endif
+                    @endif  
                 </div>
             </div>
         </section>

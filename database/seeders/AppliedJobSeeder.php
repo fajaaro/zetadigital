@@ -15,7 +15,7 @@ class AppliedJobSeeder extends Seeder
         $appliedJob = new AppliedJob();
         $appliedJob->job_id = 1;
         $appliedJob->user_id = $user->id;
-        $appliedJob->cv_path = 'applied-jobs-cv/' . strToSlug($user->getFullName()) . '.pdf';
+        $appliedJob->cv_path = 'applied-jobs-cv/' . $user->id . '-' . strToSlug($user->getFullName()) . '.pdf';
         $appliedJob->save();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\AppliedJob;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -12,6 +13,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     protected $fillable = [
+        'role_id',
         'name',
         'email',
         'password',
@@ -61,5 +63,13 @@ class User extends Authenticatable
     public function inRole($role)
     {
         return $this->role->name == strtolower($role);
+    }
+
+    public function hasApplyJob($id)
+    {
+        return AppliedJob::where([
+            ['job_id', $id],
+            ['user_id', $this->id],
+        ])->exists();
     }
 }

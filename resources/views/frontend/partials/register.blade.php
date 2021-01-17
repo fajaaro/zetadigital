@@ -9,7 +9,9 @@
                 </button>
             </div>
             <div class="content">
-                <form action="" class="modal-form">
+                <form method="post" action="{{ route('register') }}" class="modal-form">
+                    @csrf
+
                     <div class="input-container">
                         <label for="email">Your Email</label>
                         <input type="email" name="email" id="email">
@@ -25,9 +27,9 @@
                     <div class="input-container">
                         <label for="role">I'm signin up as</label>
                         <select class="select-control dropdown-toggle" name="role" id="role">
+                            <option value="">Select Role</option>
                             <option value="1">Recruiter</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
+                            <option value="2">Member</option>
                         </select>
                     </div>
                     <input type="submit" class="submit-button" value="REGISTER">

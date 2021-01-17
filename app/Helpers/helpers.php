@@ -13,11 +13,11 @@ function strToSlug($str) {
 	return str_replace(' ', '-', strtolower($str));
 }
 
-function uploadImage($image, $model, $folder)
+function uploadFile($file, $model, $folder)
 {
-	$imageExtension = $image->guessExtension();
-    $imageName = $model->id . '-' . strToSlug($model->name) . '.' . $imageExtension; 
-    $imagePath = Storage::putFileAs($folder, $image, $imageName);
+	$fileExtension = $file->guessExtension();
+    $fileName = $model->id . '-' . strToSlug($model->name ? $model->name : $model->getFullName()) . '.' . $fileExtension; 
+    $filePath = Storage::putFileAs($folder, $file, $fileName);
 
-    return $imagePath;
+    return $filePath;
 }

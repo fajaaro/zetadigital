@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AppliedJob;
 use App\Models\Job;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
@@ -23,5 +25,20 @@ class JobController extends Controller
     	$job = Job::with(['recruiter', 'company.subdistrict.province'])->where('id', $id)->first();
 
     	return view('frontend.jobs.show', compact('job'));
+    }
+
+    public function apply(Request $request, $id)
+    {
+        $user = Auth::user();
+
+        $cvPath = uploadFile($request->file('cv'), $user, 'applied-jobs-cv');
+
+        $appliedJob = new AppliedJob();
+        $appliedJob->job_id = $id;
+        $appliedJob->user_id = $user->id;
+        $appliedJob->cv_path = $cvPath;
+        $appliedJob->save();
+
+        return back();
     }
 }

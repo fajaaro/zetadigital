@@ -51,7 +51,7 @@
                 <div class="profile row col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="picture col-xl-4 col-lg-4 col-md-2 col-sm-2 col-3"><img src="{{ asset('assets/img/profilepicture2_clear.png') }}"></div>
                     <div class="data col-xl-8 col-lg-8 col-md-10 col-sm-10 col-9">
-                        <div class="name">{{ $job->recruiter->getFullName() }}</div>
+                        <div class="name">{{ $job->recruiter->user->getFullName() }}</div>
                         <div class="location">{{ $job->company->subdistrict->subdistrict }}, {{ $job->company->subdistrict->district }}, {{ $job->company->subdistrict->city }}</div>
                         <div class="company">{{ $job->company->name }}</div>
                     </div>

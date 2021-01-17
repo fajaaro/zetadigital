@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\RecruiterDetail;
+use App\Models\Recruiter;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -10,12 +10,12 @@ class RecruiterSeeder extends Seeder
 {
     public function run()
     {
-        $recruiter = User::where('role_id', 3)->first();
+        $user = User::where('role_id', 3)->first();
 
-        $recruiterDetail = new RecruiterDetail();
-        $recruiterDetail->user_id = $recruiter->id;
-        $recruiterDetail->company_id = 1;
-        $recruiterDetail->position_at_company = 'Human Resources Development';
-        $recruiterDetail->save();
+        $recruiter = new Recruiter();
+        $recruiter->user_id = $user->id;
+        $recruiter->company_id = 1;
+        $recruiter->position_at_company = 'Human Resources Development';
+        $recruiter->save();
     }
 }

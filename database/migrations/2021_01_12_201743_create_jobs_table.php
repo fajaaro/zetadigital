@@ -11,7 +11,7 @@ class CreateJobsTable extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('company_id')->constrained()->onDelete('cascade');
-            $table->unsignedBigInteger('recruiter_id');
+            $table->foreignId('recruiter_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->enum('type', ['onsite', 'freelance', 'remote']);
             $table->unsignedInteger('slots');
@@ -19,8 +19,6 @@ class CreateJobsTable extends Migration
             $table->enum('status', ['open', 'closed']);
             $table->timestamps();
             $table->timestamp('expired_at', 0)->nullable();
-
-            $table->foreign('recruiter_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

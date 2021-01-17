@@ -16,7 +16,7 @@ class Job extends Model
 
     public function recruiter()
     {
-    	return $this->belongsTo('App\Models\User', 'recruiter_id');
+    	return $this->belongsTo('App\Models\Recruiter');
     }
 
     public function appliedJobs()

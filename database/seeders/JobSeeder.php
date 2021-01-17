@@ -10,11 +10,11 @@ class JobSeeder extends Seeder
 {
     public function run()
     {
-		$recruiter = User::with('recruiterDetail')->where('role_id', 3)->first();
+		$user = User::with('recruiter')->where('role_id', 3)->first();
 
         $job = new Job();
-        $job->company_id = $recruiter->recruiterDetail->company_id;
-        $job->recruiter_id = $recruiter->id;
+        $job->company_id = $user->recruiter->company_id;
+        $job->recruiter_id = $user->recruiter->id;
         $job->name = 'Software Engineer';
         $job->type = 'onsite';
         $job->slots = 1;

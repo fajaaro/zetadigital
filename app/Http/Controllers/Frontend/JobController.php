@@ -22,7 +22,7 @@ class JobController extends Controller
 
     public function show($id)
     {
-    	$job = Job::with(['recruiter', 'company.subdistrict.province'])->where('id', $id)->first();
+    	$job = Job::with(['recruiter.user', 'company.subdistrict.province'])->where('id', $id)->first();
 
     	return view('frontend.jobs.show', compact('job'));
     }

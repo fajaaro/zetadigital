@@ -13,7 +13,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
-        $query = User::with(['jobs', 'appliedJobs'])
+        $query = User::with(['recruiter', 'appliedJobs'])
         			->join('roles', 'users.role_id', '=', 'roles.id')
                     ->select('users.*', 'roles.name as role_name');
         

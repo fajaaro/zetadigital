@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RecruiterDetail extends Model
+class Recruiter extends Model
 {
     use HasFactory;
 
@@ -17,5 +17,10 @@ class RecruiterDetail extends Model
     public function company()
     {
     	return $this->belongsTo('App\Models\Company');
+    }
+
+    public function jobs()
+    {
+        return $this->hasMany('App\Models\Job');
     }
 }

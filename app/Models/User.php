@@ -33,15 +33,9 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Role');
     }
 
-    public function recruiterDetail()
+    public function recruiter()
     {
-        return $this->hasOne('App\Models\RecruiterDetail');
-    }
-
-    public function jobs()
-    {
-        // return pekerjaan yang diposting user dengan tipe recruiter
-        return $this->hasMany('App\Models\Job', 'recruiter_id');
+        return $this->hasOne('App\Models\Recruiter');
     }
 
     public function appliedJobs()

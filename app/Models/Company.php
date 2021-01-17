@@ -14,9 +14,9 @@ class Company extends Model
     	return $this->belongsTo('App\Models\User', 'registrant_id');
     }
 
-    public function recruiterDetails()
+    public function recruiters()
     {
-    	return $this->hasMany('App\Models\RecruiterDetail');
+    	return $this->hasMany('App\Models\Recruiter');
     }
 
     public function subdistrict()

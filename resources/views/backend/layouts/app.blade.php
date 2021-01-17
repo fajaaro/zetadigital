@@ -53,6 +53,7 @@
             </div>
             <!-- Nav Item - Pages Collapse Menu -->
             @include('backend.menus.users')
+            @include('backend.menus.companies')
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
             <!-- Sidebar Toggler (Sidebar) -->

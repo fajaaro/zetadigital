@@ -21,6 +21,7 @@ class CompanySeeder extends Seeder
 			$company->name = $companiesName[$i];
 			$company->image_profile_path = 'companies-photo-profile/' . $imageProfile[$i];
 			$company->address = "JL. Pengadegan Timur $i";
+			$company->status = 1;
 			$company->save();
 		}
     }

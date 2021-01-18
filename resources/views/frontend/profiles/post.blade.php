@@ -10,45 +10,21 @@
     <section class="zeta-view row">
         <section class="zeta-form">
             <div class="title">
-                /Set Up Your {{ Auth::user()->inRole('recruiter') ? 'Recruiting' : '' }} Profile
+                /Post Job
             </div>
-            <form method="post" action="{{ route('frontend.profile.setup') }}" enctype="multipart/form-data">
+            <form method="post" action="">
                 @csrf
-
                 <div class="input-container">
-                    <div class="preview-image">
-                        <img id="previewImage-profile">
-                    </div>
-                    <input type="file" name="image_profile" id="image_profile" accept="image/*" onchange="previewProfileImage(event)" hidden>
-                    <label for="image_profile" class="hidden-upload">Upload a Profile Picture</label>
+                    <input type="text" name="name" id="name" placeholder="Name">
                 </div>
                 <div class="input-container">
-                    <input type="text" name="first_name" id="first_name" placeholder="First Name">
+                    <textarea name="description" id="description" cols="30" rows="8" placeholder="Description..."></textarea>
                 </div>
                 <div class="input-container">
-                    <input type="text" name="last_name" id="last_name" placeholder="Last Name">
+                    <input type="number" name="slot" id="slot" placeholder="Slot" style="margin-right: 7.5px;">
+                    <input type="text" name="expired_time" id="expired_time" placeholder="Expired Time (Days)" style="margin-left: 7.5px;">
                 </div>
-                <div class="input-container">
-                    <input type="text" name="phone_number" id="phone_number" placeholder="Phone Number">
-                </div>
-                @if (Auth::user()->inRole('recruiter'))
-                    <hr>
-                    <div class="input-container">
-                        {{-- <input type="text" name="company" id="company" placeholder="Company"> --}}
-                        <select id="company" class="form-control company" name="company_id" required>
-                            <option value="">Select Your Company</option>
-                            
-                            @foreach ($companies as $company)
-                                <option value="{{ $company->id }}">{{ $company->name }}</option>
-                            @endforeach                                 
-                        </select>
-                    </div>
-                    <div class="input-container">
-                        <input type="text" name="company_position" id="company_position" placeholder="Your position at that Company">
-                    </div>
-                    <p>Your company is not registered yet? <a data-dismiss="modal" data-toggle="modal" data-target="#tambahan-modal" class="modal-button">register</a> now!</p>
-                @endif
-                <input type="submit" class="submit-button mb-3" value="SAVE PROFILE">
+                <input type="submit" class="submit-button mb-3" value="SUBMIT">
             </form>
         </section>
     </section>

@@ -16,12 +16,25 @@
         font-size: 16px;
         margin-bottom: 15px;
       }
-      .zeta-form form .input-container input[type="text"] {
+      .zeta-form form .input-container input[type="text"],
+      .zeta-form form .input-container input[type="number"],
+      .zeta-form form .input-container textarea {
         width: 100%;
         padding: 20px;
         border-radius: 5px;
         background-color: #f2f4f7;
         border: 1px solid #dddddd;
+      }
+      .zeta-form form .input-container textarea {
+        resize: none;
+      }
+      .zeta-form form .input-container input::-webkit-outer-spin-button,
+      .zeta-form form .input-container input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      .zeta-form form .input-container input[type=number] {
+        -moz-appearance: textfield;
       }
       .zeta-form form .input-container .preview-image {
         width: 100px;
@@ -47,6 +60,11 @@
         background-color: #2b1e54;
         color: #ffffff;
         transition: all .1s;
+      }
+      .zeta-form form .modal-button {
+        font-weight: bold;
+        cursor: pointer;
+        color: #2b1e54;
       }
       .zeta-form form .submit-button {
         margin-top: 15px;

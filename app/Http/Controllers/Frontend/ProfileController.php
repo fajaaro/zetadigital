@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Company;
-use App\Models\RecruiterDetail;
+use App\Models\Recruiter;
 use App\Models\Subdistrict;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,17 +15,14 @@ class ProfileController extends Controller
     {
     	$user = Auth::user();
 
-    	dd($user);
-
-    	return view('frontend.profiles.index', compact('profile'));
+    	return view('frontend.profiles.index', compact('user'));
     }
 
     public function formSetUpProfile()
     {
         $subdistricts = Subdistrict::all();
-        $companies = Company::all();
 
-    	return view('frontend.profiles.setup', compact('subdistricts', 'companies'));
+    	return view('frontend.profiles.setup', compact('subdistricts'));
     }
 
     public function setUpProfile(Request $request)
@@ -37,37 +34,21 @@ class ProfileController extends Controller
     	$user->phone_number = $request->get('phone_number');
 
     	if ($user->role_id == 3) {
-    		if ($request->has('existing_company')) {
-	    		$recruiterDetail = new RecruiterDetail();
-	    		$recruiterDetail->user_id = $user->id;
-	    		$recruiterDetail->company_id = $request->get('company_id');
-	    		$recruiterDetail->position_at_company = $request->get('position_at_company');
-	    		$recruiterDetail->save();
-    		} else {
-    			$company = new Company();
-                $company->registrant_id = $user->id;
-    			$company->subdistrict_id = $request->get('subdistrict_id');
-    			$company->name = $request->get('name');
-    			$company->address = $request->get('address');
-    			$company->save();
-    			
-    			if ($request->hasFile('image_profile')) {
-    				$imageProfilePath = uploadFile($request->file('image_profile'), $company, 'companies-photo-profile');
+    		$recruiter = new Recruiter();
+    		$recruiter->user_id = $user->id;
+    		$recruiter->company_id = $request->get('company_id');
+    		$recruiter->position_at_company = $request->get('position_at_company');
+    		$recruiter->save();
+    	} 
 
-    				$company->image_profile_path = $imageProfilePath;
-    				$company->save();
-    			}
-    		}
-    	} else {
-    		if ($request->hasFile('image_profile')) {
-				$imageProfilePath = uploadFile($request->file('image_profile'), $user, 'users-photo-profile');
+		if ($request->hasFile('image_profile')) {
+			$imageProfilePath = uploadFile($request->file('image_profile'), $user, 'users-photo-profile');
 
-				$user->image_profile_path = $imageProfilePath;
-			}
-    	}
+			$user->image_profile_path = $imageProfilePath;
+		}
 
     	$user->save();
 
-    	return redirect()->route('frontend.profiles.index');
+    	return redirect()->route('frontend.profile.index');
     }
 }

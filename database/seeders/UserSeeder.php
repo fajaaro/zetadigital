@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {
@@ -27,6 +28,7 @@ class UserSeeder extends Seeder
 		$user->phone_number = $phoneNumber;
 		$user->email = $email;
 		$user->password = Hash::make('fajar123');
+        $user->api_token = Str::random(80);
 		$user->save();
     }
 }

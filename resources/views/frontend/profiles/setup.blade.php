@@ -1,9 +1,12 @@
 @extends('frontend.layouts.app')
 
 @push('styles')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('assets/css/setup.css') }}">
 @endpush
+
+@if (Auth::user()->inRole('recruiter'))
+    @include('frontend.partials.add-company-modal')
+@endif
 
 @section('content')
 	<!-- ! View ! -->
@@ -34,19 +37,12 @@
                 @if (Auth::user()->inRole('recruiter'))
                     <hr>
                     <div class="input-container">
-                        {{-- <input type="text" name="company" id="company" placeholder="Company"> --}}
-                        <select id="company" class="form-control company" name="company_id" required>
-                            <option value="">Select Your Company</option>
-                            
-                            @foreach ($companies as $company)
-                                <option value="{{ $company->id }}">{{ $company->name }}</option>
-                            @endforeach                                 
-                        </select>
+                        <select id="company" name="company_id" required></select>
                     </div>
                     <div class="input-container">
-                        <input type="text" name="company_position" id="company_position" placeholder="Your position at that Company">
+                        <input type="text" name="position_at_company" id="position_at_company" placeholder="Your position at that Company">
                     </div>
-                    <p>Your company is not registered yet? <a data-dismiss="modal" data-toggle="modal" data-target="#tambahan-modal" class="modal-button">register</a> now!</p>
+                    <p>Your company is not registered yet? <a data-dismiss="modal" data-toggle="modal" data-target="#add-company-modal" class="modal-button">register</a> now!</p>
                 @endif
                 <input type="submit" class="submit-button mb-3" value="SAVE PROFILE">
             </form>
@@ -56,15 +52,10 @@
 @endsection
 
 @push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
 
     <script>
         $(document).ready(function() {
-            $('select').selectize({
-                // sortField: 'text'
-            })
-
             $('#company_city').on('change', function() {
                 const subdistrictId = $(this).val()
 
@@ -88,6 +79,32 @@
                     })
 
             })
+
+            function getAllCompanies() {
+                const apiToken = $('meta[name=api_token]').attr('content')
+
+                axios
+                    .get(`{{ route('api.companies.index') }}?api_token=${apiToken}`)
+                    .then(res => {
+                        if (res.status == 200) {
+                            let companies = res.data.companies
+
+
+                            $('#company').empty()
+                            $('#company').append('<option value="">Select Your Company</option>')
+
+                            companies.map((item, index) => {
+                                let optionCompanyHTML = `<option value="${item.id}">${item.name}</option>`
+                                $('#company').append(optionCompanyHTML) 
+                            })
+                        }
+                    }) 
+                    .catch(err => {
+                        console.log(err)
+                    })
+            }
+
+            getAllCompanies()
     
         })
 

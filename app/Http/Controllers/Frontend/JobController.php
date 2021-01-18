@@ -27,6 +27,28 @@ class JobController extends Controller
     	return view('frontend.jobs.show', compact('job'));
     }
 
+    public function create()
+    {
+        return view('frontend.jobs.create');
+    }
+
+    public function store(Request $request)
+    {
+        $user = Auth::user();
+
+        $job = new Job();
+        $job->company_id = $user->recruiter->company->id;
+        $job->recruiter_id = $user->recruiter->id;
+        $job->name = $request->get('name');
+        $job->type = $request->get('type');
+        $job->slots = $request->get('slots');
+        $job->description = $request->get('description');
+        $job->expired_at = now()->addDays($request->get('expired_at'));
+        $job->save();
+
+        return redirect()->route('home');
+    }
+
     public function apply(Request $request, $id)
     {
         $user = Auth::user();

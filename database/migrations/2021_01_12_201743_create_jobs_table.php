@@ -16,7 +16,7 @@ class CreateJobsTable extends Migration
             $table->enum('type', ['onsite', 'freelance', 'remote']);
             $table->unsignedInteger('slots');
             $table->text('description')->nullable();
-            $table->enum('status', ['open', 'closed']);
+            $table->enum('status', ['open', 'closed'])->default('open');
             $table->timestamps();
             $table->timestamp('expired_at', 0)->nullable();
         });

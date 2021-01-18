@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    @if (Auth::check())
+        <meta name="api_token" content="{{ Auth::user()->api_token }}">
+    @endif
 
     <title>{{ config('app.name', 'Zetadigital') }}</title>
     

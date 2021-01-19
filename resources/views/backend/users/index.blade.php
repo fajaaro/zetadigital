@@ -27,6 +27,7 @@
                                 <th scope="col">Phone Number</th>
                                 <th scope="col">Role</th>
                                 <th scope="col">Applied Jobs</th>                                
+                                <th scope="col">Hired Users</th>                                
                                 <th scope="col">Registered At</th>
                                 <th scope="col">Actions</th>
                             </tr>
@@ -40,6 +41,7 @@
                                     <td>{{ $user->phone_number }}</td>
                                     <td class="role-column">{{ $user->role_name }}</td>
                                     <td>{{ $user->appliedJobs()->count() }}</td>
+                                    <td>{{ $user->inRole('recruiter') ? $user->recruiter->hiredUsers()->count() : 'NULL' }}</td>
                                     <td>{{ formatDate($user->created_at) }}</td>
                                     <td>
                                         <span class="badge badge-danger badge-action remove-user" data-toggle="tooltip" data-placement="top" title="Remove"> 

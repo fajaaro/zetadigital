@@ -50,6 +50,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Company', 'registrant_id');
     }
 
+    public function hiredUsers()
+    {
+        return $this->hasMany('App\Models\HiredUser');
+    }
+
     public function getFullName()
     {
         return $this->first_name . ' ' . $this->last_name;

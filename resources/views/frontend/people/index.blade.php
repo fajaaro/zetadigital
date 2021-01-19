@@ -35,9 +35,18 @@
                         </div>
                         @if (Auth::user()->inRole('recruiter'))
                             <div class="hire-me-container">
-                                <a href="">
-                                    <div class="hire-me">HIRE ME</div>
-                                </a>
+                                @if (Auth::user()->recruiter->hasHired($member->id))
+                                    <div class="hire-me" style="opacity: 0.8;">HIRED</div>
+                                @else
+                                    <div class="hire-me" style="cursor: pointer;">HIRE ME</div>
+
+                                    <form method="post" action="{{ route('frontend.people.hire') }}" class="d-none">
+                                        @csrf
+
+                                        <input type="hidden" name="user_id" value="{{ $member->id }}">
+                                        <input type="hidden" name="recruiter_id" value="{{ Auth::user()->recruiter->id }}">
+                                    </form>                                
+                                @endif
                             </div>
                         @endif
                     </div>
@@ -48,3 +57,13 @@
     </section>
     <!-- !!! END OF hire !!! -->
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('.hire-me').on('click', function() {
+                $(this).next().submit()
+            })
+        })
+    </script>
+@endpush

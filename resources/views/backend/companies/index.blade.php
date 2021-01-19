@@ -34,7 +34,7 @@
                                     <td>{{ $company->jobs()->count() }}</td>
                                     <td>{{ $company->recruiters()->count() }}</td>
                                     <td>{{ formatDate($company->created_at) }}</td>
-                                    <td>{{ $company->registrant ? $company->registrant->name : '' }}</td>
+                                    <td>{{ $company->registrant ? $company->registrant->getFullName() : '' }}</td>
                                     <td>
                                         @if ($company->confirmed)
                                             <span class="badge badge-danger badge-action confirm-company" data-toggle="tooltip" data-placement="top" title="Unconfirm"> 

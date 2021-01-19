@@ -33,7 +33,17 @@
 	                <div class="status col-xl-4 col-lg-4 col-md-4 col-sm-4">
 	                    <div class="place">
 	                        <div class="icon">
-	                            <img src="{{ asset('assets/img/city.png') }}">
+	                        	@php
+	                        		if ($job->type == 'onsite') {
+	                        			$imgSrc = asset('assets/img/city.png');
+	                        		} else if ($job->type == 'freelance') {
+	                        			$imgSrc = asset('assets/img/freelance.png');
+	                        		} else {
+	                        			$imgSrc = asset('assets/img/remote.png');
+	                        		}
+	                        	@endphp
+
+	                            <img src="{{ $imgSrc }}">
 	                        </div>
 	                        <div class="explanation">{{ ucfirst($job->type) }}</div>
 	                    </div>

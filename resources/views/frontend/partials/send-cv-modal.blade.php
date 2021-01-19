@@ -15,7 +15,7 @@
                     <div class="input-container">
                         <label for="file_cv">Attach CV in PDF format</label>
                         <input type="file" name="cv" id="file_cv" accept=".pdf" onchange="previewFileCv(event)" required hidden>
-                        <label for="file_cv" class="hidden-upload"><img src="../assets/img/desktop.png" class="icon"> Choose File...</label>
+                        <label for="file_cv" class="hidden-upload"><img src="{{ asset('assets/img/desktop.png') }}" class="icon"> Choose File...</label>
                     </div>
                     <div class="preview-file" id="previewFile-cv">
                     </div>

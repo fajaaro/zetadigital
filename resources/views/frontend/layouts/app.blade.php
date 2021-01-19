@@ -25,6 +25,12 @@
 </head>
 
 <body>
+    @auth
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    @endauth
+
     <!-- ! Sidebar Modal ! -->
     <section class="modal fade" id="sidebar-modal" tabindex="-1" role="dialog" aria-labelledby="sidebar-modal" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -42,7 +48,7 @@
                                     <a href="#" type="button" data-toggle="dropdown" id="profileDropdown">
                                         <div class="profile">
                                             <div class="image">
-                                                <img src="{{ asset('assets/img/profilepicture2.png') }}">
+                                                <img src="{{ Auth::user()->image_profile_path ? Storage::url(Auth::user()->image_profile_path) : asset('assets/img/profilepicture2.png') }}">
                                             </div>
                                             <div class="name">
                                             {{ Auth::user()->getFullName() }}
@@ -50,7 +56,8 @@
                                         </div>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                                        <a href="#"><div>Logout</div></a>
+                                        <a href="{{ route('frontend.profile.index') }}" style="margin-left: 10px;">My Profile</a>
+                                        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><div>Logout</div></a>
                                     </div>
                                 </div>
                             @else 
@@ -119,7 +126,7 @@
                         <a href="#" type="button" data-toggle="dropdown" id="profileDropdown">
                             <div class="profile">
                                 <div class="image">
-                                    <img src="{{ asset('assets/img/profilepicture2.png') }}">
+                                    <img src="{{ Auth::user()->image_profile_path ? Storage::url(Auth::user()->image_profile_path) : asset('assets/img/profilepicture2.png') }}">
                                 </div>
                                 <div class="name">
                                 {{ Auth::user()->getFullName() }}
@@ -127,7 +134,8 @@
                             </div>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                            <a href="#"><div>Logout</div></a>
+                            <a href="{{ route('frontend.profile.index') }}" style="margin-left: 10px;">My Profile</a>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><div>Logout</div></a>
                         </div>
                     </div>
                 @else

@@ -14,10 +14,10 @@
                         <thead>
                             <tr>
                                 <th scope="col" width="10">#</th>
+                                <th scope="col">Company</th>
                                 <th scope="col">Job Name</th>
                                 <th scope="col">Recruiter Name</th>
                                 <th scope="col">Recruiter Phone</th>
-                                <th scope="col">Company</th>
                                 <th scope="col">Applicant Name</th>
                                 <th scope="col">Applicant Phone</th>
                                 <th scope="col">Applied At</th>                                
@@ -28,6 +28,7 @@
                         	@foreach ($appliedJobs as $appliedJob)
                                 <tr>
                                     <th scope="row" width="10">{{ $loop->iteration }}</th>
+                                    <td>{{ $appliedJob->job->company->name }}</td>
                                     <td>{{ $appliedJob->job->name }}</td>
 
                                     @php
@@ -36,7 +37,6 @@
 
                                     <td>{{ $recruiter->getFullName() }}</td>
                                     <td>{{ $recruiter->phone_number }}</td>
-                                    <td>{{ $appliedJob->job->company->name }}</td>
                                     <td>{{ $appliedJob->user->getFullName() }}</td>
                                     <td>{{ $appliedJob->user->phone_number }}</td>
                                     <td>{{ formatDate($appliedJob->created_at) }}</td>

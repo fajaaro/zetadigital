@@ -55,6 +55,7 @@
             @include('backend.menus.users')
             @include('backend.menus.companies')
             @include('backend.menus.applied-jobs')
+            @include('backend.menus.hired-users')
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
             <!-- Sidebar Toggler (Sidebar) -->

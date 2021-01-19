@@ -32,7 +32,7 @@
                 <section class="zeta-sidebar col-12">
                     <div class="zeta-navbar">
                         <div class="menu-section">
-                            <a href="" class="menu-item">
+                            <a href="{{ route('home') }}" class="menu-item">
                                 <div class="discover">
                                     Discover
                                 </div>
@@ -106,7 +106,7 @@
                 <img src="{{ asset('assets/img/zetalogo.png') }}" alt="ZetaLogo">
             </a>
             <div class="menu-section">
-                <a href="" class="menu-item">
+                <a href="{{ route('home') }}" class="menu-item">
                     <div class="discover">
                         Discover
                     </div>

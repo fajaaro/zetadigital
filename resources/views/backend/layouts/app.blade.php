@@ -54,6 +54,7 @@
             <!-- Nav Item - Pages Collapse Menu -->
             @include('backend.menus.users')
             @include('backend.menus.companies')
+            @include('backend.menus.applied-jobs')
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
             <!-- Sidebar Toggler (Sidebar) -->

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -31,6 +32,8 @@ class UserController extends Controller
         $user = User::find($id);
 
 		if ($user) {
+            Storage::delete($user->image_profile_path);
+
 			$user->delete();
 
             return redirect()->route('backend.users.index')->with('success', 'Success delete user!');            

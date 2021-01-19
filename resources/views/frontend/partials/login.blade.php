@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content zeta-modal">
             <div class="title">
-                Welcome Back! <img src="../assets/img/handwave.png">
+                Welcome Back! <img src="{{ asset('assets/img/handwave.png') }}">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

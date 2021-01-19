@@ -94,6 +94,21 @@
     color: #000000;
     font-size: 16px;
 }
+.zeta-navbar .menu-section > .menu-item .dropdown-menu {
+    color: #2B1E54;
+    border-radius: 5px;
+    
+}
+.zeta-navbar .menu-section > .menu-item .dropdown-menu div {
+    padding: 0 10px;
+}
+.zeta-navbar .menu-section > .menu-item .dropdown-menu .divider {
+    border-top: 1px solid rgba(0,0,0,.15);
+}
+.zeta-navbar .menu-section > .menu-item .dropdown-menu div:hover {
+    transition: all .1s;
+    background-color: #f7f7f7;
+}
 .open-navbar {
     position: absolute;
     padding: 10px;

@@ -39,15 +39,18 @@
                             </a>
                             @auth 
                                 <div class="menu-item">
-                                    <div class="profile">
-                                        <div class="image">
-                                            <img src="{{ asset('assets/img/profilepicture2.png') }}">
-                                        </div>
-                                        <a href="{{ route('frontend.profile.index') }}">
+                                    <a href="#" type="button" data-toggle="dropdown" id="profileDropdown">
+                                        <div class="profile">
+                                            <div class="image">
+                                                <img src="{{ asset('assets/img/profilepicture2.png') }}">
+                                            </div>
                                             <div class="name">
-                                                {{ Auth::user()->getFullName() }}
-                                            </div>                                            
-                                        </a>
+                                            {{ Auth::user()->getFullName() }}
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                                        <a href="#"><div>Logout</div></a>
                                     </div>
                                 </div>
                             @else 
@@ -113,15 +116,18 @@
                 </a>
                 @auth
                     <div class="menu-item">
-                        <div class="profile">
-                            <div class="image">
-                                <img src="{{ asset('assets/img/profilepicture2.png') }}">
-                            </div>
-                            <a href="{{ route('frontend.profile.index') }}">
+                        <a href="#" type="button" data-toggle="dropdown" id="profileDropdown">
+                            <div class="profile">
+                                <div class="image">
+                                    <img src="{{ asset('assets/img/profilepicture2.png') }}">
+                                </div>
                                 <div class="name">
-                                    {{ Auth::user()->getFullName() }}
-                                </div>                                
-                            </a>
+                                {{ Auth::user()->getFullName() }}
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                            <a href="#"><div>Logout</div></a>
                         </div>
                     </div>
                 @else

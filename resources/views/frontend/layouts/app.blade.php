@@ -43,9 +43,11 @@
                                         <div class="image">
                                             <img src="{{ asset('assets/img/profilepicture2.png') }}">
                                         </div>
-                                        <div class="name">
-                                            {{ Auth::user()->getFullName() }}
-                                        </div>
+                                        <a href="{{ route('frontend.profile.index') }}">
+                                            <div class="name">
+                                                {{ Auth::user()->getFullName() }}
+                                            </div>                                            
+                                        </a>
                                     </div>
                                 </div>
                             @else 
@@ -115,9 +117,11 @@
                             <div class="image">
                                 <img src="{{ asset('assets/img/profilepicture2.png') }}">
                             </div>
-                            <div class="name">
-                                {{ Auth::user()->getFullName() }}
-                            </div>
+                            <a href="{{ route('frontend.profile.index') }}">
+                                <div class="name">
+                                    {{ Auth::user()->getFullName() }}
+                                </div>                                
+                            </a>
                         </div>
                     </div>
                 @else

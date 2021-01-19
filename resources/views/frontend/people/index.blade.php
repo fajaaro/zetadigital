@@ -33,11 +33,13 @@
                             @endphp
                             <div class="job-count">{{ $jobCount }} Job{{ $jobCount > 1 ? 's' : '' }} applied</div>
                         </div>
-                        <div class="hire-me-container">
-                            <a href="">
-                                <div class="hire-me">HIRE ME</div>
-                            </a>
-                        </div>
+                        @if (Auth::user()->inRole('recruiter'))
+                            <div class="hire-me-container">
+                                <a href="">
+                                    <div class="hire-me">HIRE ME</div>
+                                </a>
+                            </div>
+                        @endif
                     </div>
                 </div>
             @endforeach

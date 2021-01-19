@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ResetPasswordRequest;
 use App\Models\Company;
 use App\Models\Recruiter;
 use App\Models\Subdistrict;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -50,5 +52,24 @@ class ProfileController extends Controller
     	$user->save();
 
     	return redirect()->route('frontend.profile.index');
+    }
+
+    public function resetPassword()
+    {
+        return view('frontend.profiles.reset-password');
+    }
+
+    public function processResetPassword(ResetPasswordRequest $request)
+    {
+        $user = Auth::user();
+
+        if (Hash::check($request->get('old_password'), $user->password)) {
+            $user->password = Hash::make($request->get('new_password'));
+            $user->save();
+
+            return redirect()->route('frontend.profile.index')->with('success', 'Password changed!');
+        }
+
+        return back()->with('failed', 'Old password is wrong!');
     }
 }

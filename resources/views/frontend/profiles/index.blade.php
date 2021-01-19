@@ -39,14 +39,16 @@
 
                         <div class="job-count">{{ $jobCount }} Job{{ $jobCount > 1 ? 's' : '' }} applied</div>
                     @else
-                        <div class="company">{{ $user->recruiter->company->name }}</div>
-                        <div class="condition">I'm looking to recruit...</div>
+                        <div class="company">{{ $user->recruiter ? $user->recruiter->company->name : '' }}</div>
+                        <div class="condition">{{ $user->recruiter ? "I'm looking to recruit..." : "I'm a " . $user->role->name }}</div>
 
-                        @php
-                        	$jobCount = $user->recruiter->jobs()->count();
-                        @endphp
+                        @if ($user->inRole('recruiter'))
+                            @php
+                            	$jobCount = $user->recruiter->jobs()->count();
+                            @endphp
 
-                        <div class="job-count">{{ $jobCount }} Job{{ $jobCount > 1 ? 's' : '' }} posted</div>
+                            <div class="job-count">{{ $jobCount }} Job{{ $jobCount > 1 ? 's' : '' }} posted</div>
+                        @endif
                     @endif
 
                 </div>

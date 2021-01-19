@@ -12,7 +12,7 @@ class CheckRecruiter
     {
         $user = Auth::user();
 
-        if ($user && $user->role_id <= 3) {
+        if ($user && $user->role_id == 3) {
             return $next($request);
         }
 

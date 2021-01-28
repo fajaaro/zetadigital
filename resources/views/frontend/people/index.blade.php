@@ -22,7 +22,7 @@
                 <div class="hire-container col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="hire row">
                         <div class="picture col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-                            <img src="{{ asset('assets/img/profilepicture.png') }}" alt="Profile Picture">
+                            <img src="{{ $member->image_profile_path ? Storage::url($member->image_profile_path) : asset('assets/img/profilepicture.png') }}" alt="Profile Picture">
                         </div>
                         <div class="description col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                             <div class="name">{{ $member->getFullName() }}</div>

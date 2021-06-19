@@ -113,7 +113,8 @@
         <!-- ! Navbar ! -->
         <section class="zeta-navbar">
             <a href="{{ route('home') }}" class="logo-section">
-                <img src="{{ asset('assets/img/zetalogo.png') }}" alt="ZetaLogo">
+                {{-- <img src="{{ asset('assets/img/zetalogo.png') }}" alt="ZetaLogo"> --}}
+                LOGO
             </a>
             <div class="menu-section">
                 <a href="{{ route('home') }}" class="menu-item">

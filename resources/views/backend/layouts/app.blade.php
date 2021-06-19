@@ -34,7 +34,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">IPS</div>
+                <div class="sidebar-brand-text mx-3">WEBNAME</div>
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -239,7 +239,7 @@
             <footer class="sticky-footer">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; LYS 2020</span>
+                        <span>Copyright &copy; Web Name 2020</span>
                     </div>
                 </div>
             </footer>

@@ -17,12 +17,12 @@ class UserSeeder extends Seeder
 
     	$user = $this->createUser(3, 'Recruiter', 'Zetadigital', '333333333333', 'recruiter@zetadigital.com');
 
-        // $this->createUser(4, 'Member 1', 'Zetadigital', '444444444441', 'member1@zetadigital.com');
-    	// $this->createUser(4, 'Member 2', 'Zetadigital', '444444444442', 'member2@zetadigital.com');
-    	// $this->createUser(4, 'Member 3', 'Zetadigital', '444444444443', 'member3@zetadigital.com');
+        $this->createUser(4, 'Member 1', 'Zetadigital', '444444444441', 'member1@zetadigital.com');
+    	$this->createUser(4, 'Member 2', 'Zetadigital', '444444444442', 'member2@zetadigital.com');
+    	$this->createUser(4, 'Member 3', 'Zetadigital', '444444444443', 'member3@zetadigital.com');
     }
 
-    private function createUser($roleId, $firstName, $lastName = null, $phoneNumber, $email)
+    private function createUser($roleId, $firstName, $lastName, $phoneNumber, $email)
     {
 		$user = new User();
 		$user->role_id = $roleId;

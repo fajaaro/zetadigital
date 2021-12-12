@@ -5,7 +5,7 @@
         <a href="{{ route('home') }}" class="col-xl-12 col-lg-4 col-md-4 col-sm-4 col-12 {{ request()->is('/') || request()->is('jobs*') ? 'active' : '' }}">
             <div class="link-container">
                 <div class="image">
-                    <img src="{{ asset('assets/img/suitcase.png') }}" alt="suitcase.png">
+                    <img src="{{ asset('assets/img/suitcase.png') }}" alt="suitcase.png" style="width: 25px;">
                 </div>
                 <div class="title">
                     Jobs
@@ -16,7 +16,7 @@
         <a href="{{ route('frontend.companies.index') }}" class="col-xl-12 col-lg-4 col-md-4 col-sm-4 col-12 {{ request()->is('companies*') ? 'active' : '' }}">
             <div class="link-container">
                 <div class="image">
-                    <img src="{{ asset('assets/img/city.png') }}" alt="city.png">
+                    <img src="{{ asset('assets/img/city.png') }}" alt="city.png" style="width: 25px;">
                 </div>
                 <div class="title">
                     Companies
@@ -27,14 +27,34 @@
             <a href="{{ route('frontend.people.index') }}" class="col-xl-12 col-lg-4 col-md-4 col-sm-4 col-12 {{ request()->is('people*') ? 'active' : '' }}">
                 <div class="link-container">
                     <div class="image">
-                        <img src="{{ asset('assets/img/group.png') }}" alt="group.png">
+                        <img src="{{ asset('assets/img/group.png') }}" alt="group.png" style="width: 25px;">
                     </div>
                     <div class="title">
                         Hire People
                     </div>
                 </div>
             </a>
+            <a href="{{ route('frontend.applicants.index') }}" class="col-xl-12 col-lg-4 col-md-4 col-sm-4 col-12 {{ request()->is('applicants*') ? 'active' : '' }}">
+                <div class="link-container">
+                    <div class="image">
+                        <img src="{{ asset('assets/img/group.png') }}" alt="group.png" style="width: 25px;">
+                    </div>
+                    <div class="title">
+                        Applicants
+                    </div>
+                </div>
+            </a>
         @endif
+        <a href="{{ route('frontend.forum.index') }}" class="col-xl-12 col-lg-4 col-md-4 col-sm-4 col-12 {{ request()->is('forum*') ? 'active' : '' }}">
+            <div class="link-container">
+                <div class="image">
+                    <img src="{{ asset('assets/img/forum.png') }}" alt="forum.png" style="width: 25px;">
+                </div>
+                <div class="title">
+                    Forum
+                </div>
+            </div>
+        </a>
     </div>
 </section>
 <!-- !!! END OF SIDEBAR !!! -->

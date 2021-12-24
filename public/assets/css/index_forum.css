@@ -1,0 +1,33 @@
+.flat-box{
+    background-color: #f2f4f7;
+    border-radius: 10px;
+}
+#post-btn{
+    font-size: 18px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: 500;
+    background-color: #2b1e54;
+    transition: all .1s;
+  }
+#post-btn:hover {
+    opacity: 0.8;
+    transition: all .1s;
+  }
+#reply-btn{
+    font-size: 18px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: 500;
+    background-color: #2b1e54;
+    transition: all .1s;
+  }
+#reply-btn:hover {
+    opacity: 0.8;
+    transition: all .1s;
+  }
+.post-title{
+    font-size: 1.7rem;
+}
